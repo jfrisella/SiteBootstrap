@@ -4,12 +4,15 @@
         "slim/views": "0.1.*",
         "twig/twig": "~1.0",
         "phpmailer/phpmailer": "~5.2",
-        "hassankhan/config": "0.8.*"
+        "hassankhan/config": "0.8.*",
+		"illuminate/database": "~5.1"
     },
 	"require-dev": {
         "phpunit/phpunit": "4.8.*"
     },
 	"autoload":{
-		"classmap":[]
+		"psr-4": {
+			"Code\\": "app\Code"
+		}
 	}
 }

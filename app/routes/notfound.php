@@ -7,5 +7,6 @@
 $app->notFound(function() use ($app){
 
     //Add some not found controller
+    echo "not found";
 
 });

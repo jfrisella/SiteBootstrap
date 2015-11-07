@@ -12,20 +12,17 @@ use Noodlehaus\Config;
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-//Define ROOTS
+//Define Main Root
 define("INC_ROOT", dirname(__DIR__));
-define("CONFIG_ROOT", INC_ROOT . "/app/config");
-define("ROUTES_ROOT", INC_ROOT . "/app/routes");
-define("VIEWS_ROOT", INC_ROOT . "/app/views");
+
+//Define Globals
+require_once INC_ROOT . "/app/config/globals.php";
 
 //Database Info
-define("DB_SERVER", "server");
-define("DB_SCHEMA", "schema");
-define("DB_USER", "user");
-define("DB_PASS", "password");
+require_once CONFIG_ROOT . "/db.php";
 
-
-require INC_ROOT . "/vendor/autoload.php";
+//Composer Autoloader
+require_once INC_ROOT . "/vendor/autoload.php";
 
 //Create Slim App
 $app = new Slim([
@@ -63,6 +60,9 @@ $view->parserExtensions = [
     new TwigExtension
 ];
 
+
+//Include Filters
+require_once FILTERS_ROOT . "/filters.php";
 
 
 

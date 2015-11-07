@@ -12,6 +12,9 @@ return [
             return $protocol.$domainName;
         }
     ],
+    "view" => [
+        "debug" => true
+    ],
     "cookie" =>[
         "time" => "",
         "name" => ""
@@ -24,35 +27,39 @@ return [
         "password" => "password",
         "port" => 25,
         "html" => true,
-        "wordwrap" => 100
-    ],
-    "view" => [
-        "debug" => true
-    ],
-    "versions" => [
-        "js" => 1,
-        "css" => 1,
-        "html" => 1
-    ],
-    "date" => [
-        "format" => "Y-m-d H:i:s"
-    ],
-    "emails" => [
-        "info" => [
-            "email" => "info@website.com",
-            "name" => "Website"  
-        ],
-        "sales" => [
-            "email" => "sales@website.com",
-            "name" => "Website Sales"
-        ],
-        "support" => [
-            "email" => "support@website.com",
-            "name" => "Website Support"
-        ],
-        "teams" => [
-            "tech" => [],
-            "sales" => []
+        "wordwrap" => 100,
+        
+        "emails" => [
+            "info" => [
+                "email" => "info@website.com",
+                "name" => "Website"  
+            ],
+            "sales" => [
+                "email" => "sales@website.com",
+                "name" => "Website Sales"
+            ],
+            "support" => [
+                "email" => "support@website.com",
+                "name" => "Website Support"
+            ],
+            "teams" => [
+                "tech" => [],
+                "sales" => []
+            ]
         ]
+    ],
+    "format" => [
+        "date" => "Y-m-d H:i:s"
+    ],
+    
+    //Passed with every template
+    "template_data" =>[
+        "versions" => [
+            "js" => 1,
+            "css" => 1,
+            "html" => 1
+        ],
+        "url" => "http://localhost/"
     ]
+    
 ];
