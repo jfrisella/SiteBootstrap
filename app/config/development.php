@@ -4,14 +4,6 @@
 */
 
 return [
-    "app" => [
-        "url" => function(){
-            $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || 
-            $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-            $domainName = $_SERVER['HTTP_HOST'];
-            return $protocol.$domainName;
-        }
-    ],
     "view" => [
         "debug" => true
     ],
@@ -52,7 +44,6 @@ return [
         "date" => "Y-m-d H:i:s"
     ],
     
-    //Passed with every template
     "template_data" =>[
         "versions" => [
             "js" => 1,

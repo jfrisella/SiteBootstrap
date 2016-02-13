@@ -30,14 +30,13 @@ $app = new Slim([
     "mode" => file_get_contents(INC_ROOT . "/app/mode.php"),
     "view" => new Twig(),
     "templates.path" => VIEWS_ROOT,
+    "routes.case_sensitive" => false,
     
     "cookies.encrypt" => true,
     "cookies.secret_key" => "some_secret",
     "cookies.cipher" => MCRYPT_RIJNDAEL_256,
     "cookies.cipher_mode" => MCRYPT_MODE_CBC
 ]);
-
-
 
 
 //Set Configuration
