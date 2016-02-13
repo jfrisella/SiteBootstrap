@@ -38,6 +38,10 @@ $app = new Slim([
     "cookies.cipher_mode" => MCRYPT_MODE_CBC
 ]);
 
+//Hooks
+$app->hook('slim.before', function () use ($app) {
+    $app->view()->appendData(array('siteUrl' => $app->config->get("template_data.url")));
+});
 
 //Set Configuration
 $app->configureMode($app->config("mode"), function() use ($app){
