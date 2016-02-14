@@ -12,7 +12,7 @@
     },
 	"autoload":{
 		"psr-4": {
-			"Solar\\": "app\Solar"
+			"Code\\": "app\\Code"
 		}
 	}
 }

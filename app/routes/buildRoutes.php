@@ -1,8 +1,8 @@
 <?php
-define("ROOT", $_SERVER['DOCUMENT_ROOT']);
+define("ROOT", __DIR__);
 $var = "<?php\n/**\n*\App Routes\n*/\n\n";
 
-$di = new RecursiveDirectoryIterator(ROOT . "/app/routes/routes/"); //<-- PUT LOCATION OF ROUTES HERE
+$di = new RecursiveDirectoryIterator(ROOT . "/routes/"); //<-- PUT LOCATION OF ROUTES HERE
 foreach (new RecursiveIteratorIterator($di) as $filename)
 {
     // filter out "." and ".."
@@ -10,11 +10,11 @@ foreach (new RecursiveIteratorIterator($di) as $filename)
 
     if(!preg_match('/.php$/', $filename->getFileName())) continue;
     $filename = str_replace((string)ROOT, "", (string)$filename);
-    $var .= "require_once ROOT . '" . (string)$filename . "';\n";
+    $var .= "require_once ROUTES_ROOT . '" . (string)$filename . "';\n";
 }
 
 try{
-    $file = fopen(ROOT . "/app/routes/routes.php","w");
+    $file = fopen(ROOT . "/routes.php","w");
         fwrite($file,$var);
     fclose($file);
 }catch(\Exception $e){
