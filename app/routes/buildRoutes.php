@@ -1,8 +1,10 @@
 <?php
-define("ROOT", __DIR__);
-$var = "<?php\n/**\n*\App Routes\n*/\n\n";
 
-$di = new RecursiveDirectoryIterator(ROOT . "/routes/"); //<-- PUT LOCATION OF ROUTES HERE
+define("ROOT", __DIR__);
+
+$var = "<?php\n";
+
+$di = new RecursiveDirectoryIterator(ROOT . "\\routes\\");
 foreach (new RecursiveIteratorIterator($di) as $filename)
 {
     // filter out "." and ".."
@@ -13,8 +15,10 @@ foreach (new RecursiveIteratorIterator($di) as $filename)
     $var .= "require_once ROUTES_ROOT . '" . (string)$filename . "';\n";
 }
 
+$var = str_replace("\\", "/", $var);
+
 try{
-    $file = fopen(ROOT . "/routes.php","w");
+    $file = fopen(ROOT . "\\routes.php","w");
         fwrite($file,$var);
     fclose($file);
 }catch(\Exception $e){

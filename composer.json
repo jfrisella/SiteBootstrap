@@ -5,7 +5,13 @@
         "twig/twig": "~1.0",
         "phpmailer/phpmailer": "~5.2",
         "hassankhan/config": "0.8.*",
-		"respect/validation": "~1.0"
+	      "respect/validation": "~1.0",
+        "phpoffice/phpword": "v0.12.*",
+    		"phpoffice/phpexcel": "1.8.*",
+    		"php-curl-class/php-curl-class":"4.8.*",
+        "nesbot/carbon": "~1.14",
+    		"mpdf/mpdf": "~5.6",
+        "defuse/php-encryption": "~2.0"
     },
 	"require-dev": {
         "phpunit/phpunit": "4.8.*"
@@ -14,5 +20,22 @@
 		"psr-4": {
 			"Code\\": "app\\Code"
 		}
-	}
+	},
+  "scripts": {
+      "post-install-cmd": [
+          "php composer.phar build"
+      ],
+      "post-update-cmd": [
+          "php composer.phar build"
+      ],
+      "build": [
+          "php composer.phar routes"
+      ],
+      "routes": [
+          "php app/routes/buildroutes.php"
+      ],
+      "test": [
+          "cd vendor/bin/ && phpunit --bootstrap ../../vendor/autoload.php ../../tests && cd ../../"
+      ]
+  }
 }

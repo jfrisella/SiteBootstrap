@@ -5,6 +5,7 @@
 
 <meta name="keywords" content=""/>
 <meta name="description" content=""/>
-
 <meta name="author" content="James Frisella"/>
 
+<link rel="canonical" href="" />
+<link rel="shortcut icon" href="/favicon.ico">

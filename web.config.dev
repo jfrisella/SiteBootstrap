@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <system.webServer>
+
+  <!--
+      SLIM APPLICATION REWRITE RULES
+  -->
+  <rewrite>
+      <rules>
+
+
+
+
+		<rule name="VJSApp" stopProcessing="true">
+		  <match url="^(.*)" />
+		  <conditions logicalGrouping="MatchAll">
+			  <!--
+				  These are the main (permanent) ignoring
+				  these should not change
+			  -->
+			  <add input="{REQUEST_URI}" negate="true" pattern="^/app/config/buildRoutes.php" ignoreCase="true"></add>
+			  <add input="{REQUEST_URI}" negate="true" pattern="^/public/" ignoreCase="true"></add>
+
+			  <add input="{REQUEST_URI}" negate="true" pattern="sitemap.xml" ignoreCase="true"></add>
+			  <add input="{REQUEST_URI}" negate="true" pattern="robots.txt" ignoreCase="true"></add>
+			  <add input="{REQUEST_URI}" negate="true" pattern="favicon.ico" ignoreCase="true"></add>
+
+		  </conditions>
+		  <action type="Rewrite" url="index.php" />
+		</rule>
+
+      </rules>
+  </rewrite>
+  <!--
+      END SLIM APPLICATION REWRITE RULES
+  -->
+
+        <staticContent>
+            <remove fileExtension=".woff2" />
+            <mimeMap fileExtension=".woff2" mimeType="application/font-woff2" />
+            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="365.00:00:00" />
+        </staticContent>
+        <handlers>
+            <add name="PHP_via_FastCGI" path="*.php" verb="*" modules="FastCgiModule" scriptProcessor="C:\Program Files (x86)\PHP\v5.6\php-cgi.exe" resourceType="Either" requireAccess="Script" />
+        </handlers>
+  </system.webServer>
+</configuration>

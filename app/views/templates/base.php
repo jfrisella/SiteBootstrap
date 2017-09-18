@@ -6,40 +6,68 @@
 -->
 
     <!-- Metadata - static -->
-    {% include 'templates/metadata/main.php' %}
-    
+    {% block metadata_main %}
+        {% include 'templates/metadata/main.php' %}
+    {% endblock %}
+
     <!-- Metadata - dynamic -->
     {% block metadata %}{% endblock %}
-    
+
     <!-- CSS static -->
-    {% include 'templates/css/main.php' %}
-    
+    {% block css_main %}
+        {% include 'templates/css/main.php' %}
+    {% endblock %}
+
     <!-- CSS - dynamic -->
     {% block css %}{% endblock %}
-    
+
     <!-- Javascript Header - static -->
-    {% include 'templates/js/header.php' %}
-    
+    {% block javascript_header_main %}
+        {% include 'templates/js/header.php' %}
+    {% endblock %}
+
     <!-- Javascript Header - dynamic -->
     {% block javascript_header %}{% endblock %}
-    
+
 </head>
 <body class="app-body">
-    
+
+
     <!-- Header -->
-    {% include 'templates/header/header.php' %}
-    
-    <!-- Body -->
-    {% block body %}{% endblock %}
-    
+    {% block header %}
+        {% include 'templates/header/header.php' %}
+    {% endblock %}
+
+
+
+    <!-- Body Container -->
+    {% block body_container %}
+    <div class="app-body-container">
+
+        {% block left_nav %}
+            <!-- Add include here for all left navs -->
+        {% endblock %}
+
+        <!-- Body -->
+        {% block body %}{% endblock %}
+
+    </div>
+    {% endblock %}
+
+
+
     <!-- Footer -->
-    {% include 'templates/footer/footer.php' %}
-    
+    {% block footer %}
+        {% include 'templates/footer/footer.php' %}
+    {% endblock %}
+
     <!-- Javascript - static -->
-    {% include 'templates/js/main.php' %}
-    
+    {% block javascript_main %}
+        {% include 'templates/js/main.php' %}
+    {% endblock %}
+
     <!-- Javascript - dynamic -->
     {% block javascript %}{% endblock %}
-    
+
 </body>
 </html>
