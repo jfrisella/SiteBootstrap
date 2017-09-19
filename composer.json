@@ -23,10 +23,12 @@
 	},
   "scripts": {
       "post-install-cmd": [
-          "php composer.phar build"
+          "php composer.phar build",
+          "npm install"
       ],
       "post-update-cmd": [
-          "php composer.phar build"
+          "php composer.phar build",
+          "npm update"
       ],
       "build": [
           "php composer.phar routes"

@@ -1,0 +1,24 @@
+{
+	"name": "nodeproject",
+	"version": "1.0.0",
+	"description": "node for project",
+	"main": "",
+	"dependencies": {},
+	"devDependencies": {
+		"mocha": "~3.0",
+		"node-sass": "^4.5.3",
+		"watch": "^1.0.2",
+    "uglify-js": "~3.0"
+	},
+	"scripts": {
+		"test": "npm run mocha -s",
+		"mocha": "mocha app/node/tests",
+    "build:js": "uglifyjs --compress --mangle -- public/bundle/master.js",
+    "watch:js": "watch \"npm run build:js\" public/src/js/",
+		"build:css": "node-sass public/src/css/ -o public/bundle/master.css",
+		"watch:css": "node-sass -w public/src/css/ -o public/bundle/master.css",
+		"watch": "npm run watch:css && npn run watch:js"
+	},
+	"author": "James Frisella",
+	"license": "ISC"
+}
